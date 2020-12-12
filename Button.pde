@@ -13,6 +13,7 @@ class Button {
   }
   
   public void display(){
+    rectMode(CENTER);
     stroke(255);
     fill(255, 0, 0);
     rect(x, y, wide, tall);
