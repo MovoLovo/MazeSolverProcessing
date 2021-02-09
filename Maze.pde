@@ -85,19 +85,33 @@ class Maze {
       for(int j = 0; j < maze[i].length; j++){
         
         // Set the color of the rectangle based on the character
-        if(maze[i][j] == '#'){
+        if(maze[i][j] == '#'){ // Walls
           fill(0);
-        }else if(maze[i][j] == '.'){
-          fill(255);
-        }else if(maze[i][j] == 'o'){
-          fill(0, 255, 0);
-        }else{
+        }else if(maze[i][j] == '*'){ // Goal
           fill(255, 0, 0);
+        }else if(maze[i][j] == 'o'){ // Starting point
+          fill(0, 255, 0);
+        }else if(maze[i][j] == '!'){ // Verified correct path
+          fill(0, 200, 0);
+        }else if(maze[i][j] == 'x'){ // Verified incorrect path
+          fill(200, 0, 0);
+        }else if(maze[i][j] == '?'){ // Unsure path
+          fill(255, 255, 0);
+        }else{ // Empty space
+          fill(255);
         }
         
         // Draw the rectangle based on the variables
         rect(x1 + boxWidth * j, y1 + boxHeight * i, x1 + boxWidth * (j + 1), y1 + boxHeight * (i + 1));
       }
     }
+  }
+  
+  public char[][] getMaze(){
+    return maze;
+  }  
+  
+  public void setMaze(char[][] maze){
+    this.maze = maze;
   }
 }

@@ -1,7 +1,6 @@
 // Global variables for access to buttons and maze objects
 Button stack, queue, reset;
-Maze maze;
-
+MazeSolver m;
 
 void setup(){
   // Setup the window
@@ -17,9 +16,6 @@ void setup(){
   queue = new Button("Queue", width/2, 75, 100, 50);
   reset = new Button("Reset", 3 * width/4, 75, 100, 50);
   
-  // Initial maze objects
-  maze = new Maze("input2.txt");
-  
-  // Display maze
-  maze.display(width/2, height/2 + 50, 900, 800);
+  // Initialize MazeSolver
+  m = new MazeSolver("stack", "input2.txt");
 }
