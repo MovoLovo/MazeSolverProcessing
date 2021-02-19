@@ -29,12 +29,15 @@ public class ArrayStack{
     }
 
     // Add object to top of stack
-    public void push(Object x) {
+    public boolean push(Object x) {
+        Object[] temp = arr.clone();
         // Expands the array is necessary
         expand();
 
         // Moves the cursor +1 over and adds the item to the array
         arr[++cursor] = x;
+        
+        return !Arrays.equals(temp, arr);
     }
 
     // Remove top object from stack
@@ -56,5 +59,9 @@ public class ArrayStack{
     public int search(){
         // 1 based means it starts from 1 and not 0, hence the + 1
         return cursor + 1;
+    }
+    
+    public int length(){
+      return cursor + 1;
     }
 }
